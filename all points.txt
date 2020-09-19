@@ -1,0 +1,118 @@
+ssh -i E:/Psudo_Desktop/NutritionalGenomix/NewEntries_reference/dummyga1209.pem ubuntu@18.216.74.99
+vi
+nano
+
+
+sudo apt-get update   #update
+pwd # path of my deirectory
+
+mkdir myproject
+
+cd myproject
+
+nano myprog.py
+
+Ctrl+X
+Y
+Enter
+
+cat myprog.py
+
+python3 prog1.py
+
+sudo apt-get install python3-pip
+pip3 install numpy  # pip3 is used since its using python3
+pip3 install -r req.txt  # req.txt have names of the modules to be install
+
+conda
+venv
+vitual
+
+gaenv/bin/pip3 install numpy 
+
+sudo apt-get install python3-venv
+sudo python3 -m venv gaenv
+sudo gaenv/bin/pip3 install -r requirements.txt
+sudo gaenv/bin/python3 prog1.py
+
+
+
+
+git init
+git add .
+git commit -m "first cmmit"
+git remote add origin "https://github.com/NehaBhojani/ga1209.git"
+git push origin master
+
+git status
+git reset
+
+Hey Guys, please use the below link to share your feedback for todays session without fail.
+https://docs.google.com/forms/d/e/1FAIpQLSfXcu6gwjsimyQtonzU1eD6BwQ9fc8lEzFuGpah3XuPWGLMuA/viewform
+
+bin
+config
+data
+results
+cache
+readme.md
+req,txt
+
+
+bin
+	
+
+
+
+project structure
+
+project structure
+
+bin
+config
+data
+results
+cache
+readme.md
+requirements.txt
+.gitignore
+
+
+bin 
+	datafetch
+		file
+		api
+		ftp
+		database
+	preprocessor
+		tokening
+		stemming
+	training
+	predict
+	service
+
+editor of choice  (spyder/pycharm/atom/VScode/idle)
+
+############Day2
+1. make use of function in order to make it reuseable
+2. never use any keywords as function names, variable name
+3. dont use single letter variable name (use variable and function names that can convey meaning of its purpose)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
