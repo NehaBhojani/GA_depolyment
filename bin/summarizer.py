@@ -8,6 +8,8 @@ import yaml
 import numpy as np
 
 
+from preprocessor import PreprocessDoc
+
 class SummarizeDoc:
     
     def __init__(self):
@@ -15,7 +17,7 @@ class SummarizeDoc:
             self.config = yaml.load(fl)
         
     def loadDocs(self,filePath):
-        with open(filePath,'r') as fl:
+        with open(filePath,'r',encoding='utf-8') as fl:
             text = fl.read()
         return text
     
@@ -47,15 +49,23 @@ class SummarizeDoc:
         topnSentences = [sentences[i] for i in topnIdx]
         return topnSentences
     
+    def preprocess(self,text):
+        preprocessObj = PreprocessDoc()
+        filteredText = preprocessObj.removeSpclChar(text)
+        filteredText = preprocessObj.convertToLower(filteredText)
+        return filteredText
+    
     def findSummary(self):
         filePath = self.config['data_path']['train_data']
         text = self.loadDocs(filePath)
-        sentences = self.splitSentences(text)
+        filteredText = self.preprocess(text)
+        sentences = self.splitSentences(filteredText)
         firstSent,restOfSent = self.groupSentences(sentences)
         sentLengths = self.findSentLenghtArray(restOfSent)
         topnSentences = self.findTopSentences(sentLengths,restOfSent,self.config['sentence_num'])
         allSentences = [firstSent] + topnSentences
-        summary = ' '.join(allSentences)
+        summary = '. '.join(allSentences)
         return summary
         
 summarizeObj = SummarizeDoc()
+summary = summarizeObj.findSummary()
